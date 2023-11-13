@@ -1,7 +1,7 @@
+from sqlalchemy.orm import joinedload
 from db.database import session
 from entity.ability import AbilityEntity
 from db.model.models import Ability
-
 from db.model.models import Pokemon
 
 
@@ -54,13 +54,13 @@ class AbilityRepo:
         session.commit()
 
     async def get_all(self):
-        return session.query(Ability).all()
+        return session.query(Ability).options(joinedload(Ability.pokemons)).all()
 
     async def get_by_id(self, id: int):
-        return session.query(Ability).get(id)
+        return session.query(Ability).options(joinedload(Ability.pokemons)).get(id)
 
     async def get_by_name(self, name: str):
-        return session.query(Ability).filter(Ability.name==name).first()
+        return session.query(Ability).options(joinedload(Ability.pokemons)).filter(Ability.name==name).first()
 
 
 ability_repository = AbilityRepo()
