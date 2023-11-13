@@ -11,11 +11,12 @@ class PokemonController:
         return {"message": "Get all pokemons", "pokemons": results}
 
     async def get_pokemon_by_id(self, id: int):
-        result = await pokemon_service.get_one(id)
-        return {"message": "Get one pokemon by ID", "pokemon": result}
+        result = await pokemon_service.find_by_id(id)
+        return {"message": "Get one pokemon by ID", "result": result}
 
     async def get_pokemon_by_name(self, name: str):
-        return ({"message": "Get one pokemon by ID", "name": name})
+        result = await pokemon_service.find_by_name(name)
+        return ({"message": "Get one pokemon by NAME", "result": result})
 
     async def create_pokemon(self, pokemon: PokemonEntity):
         await pokemon_service.create(pokemon)

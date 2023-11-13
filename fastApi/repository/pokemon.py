@@ -1,3 +1,4 @@
+from sqlalchemy.orm import joinedload
 from db.model.models import Pokemon
 from entity.pokemon import PokemonEntity
 from db.database import session
@@ -43,14 +44,14 @@ class PokemonRepo:
         session.commit()
 
     async def get_all(self):
-        return session.query(Pokemon).all()
+        return session.query(Pokemon).options(joinedload(Pokemon.sprite), joinedload(Pokemon.abilities), joinedload(Pokemon.types)).all()
 
     async def get_by_id(self, id: int):
-        return session.query(Pokemon).get(id)
+        return session.query(Pokemon).options(joinedload(Pokemon.sprite), joinedload(Pokemon.abilities), joinedload(Pokemon.types)).get(id)
 
 
     async def get_by_name(self, name: str):
-        return session.query(Pokemon).filter(Pokemon.name==name).first()
+        return session.query(Pokemon).options(joinedload(Pokemon.sprite), joinedload(Pokemon.abilities), joinedload(Pokemon.types)).filter(Pokemon.name==name).first()
 
 
 pokemon_repository = PokemonRepo()
