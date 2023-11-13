@@ -22,7 +22,6 @@ class PokemonController:
         return {"message": "Create a new pokemon", "pokemon": pokemon}
 
     async def update_pokemon(self, pokemon: PokemonEntity):
-        is_exist = await pokemon_service.get_one(pokemon.id)
         updated = await pokemon_service.update(pokemon)
 
         return {"message": "Update pokemon by ID", "updated pokemon": updated}

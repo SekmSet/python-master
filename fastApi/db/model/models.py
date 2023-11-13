@@ -31,7 +31,7 @@ class Pokemon(Base):
     updated = Column(DateTime)
 
     # child: Mapped["Sprite"] = relationship(back_populates="pokemons")
-    sprites = relationship('Sprite', back_populates='pokemons')
+    sprite = relationship('Sprite', back_populates='pokemon', uselist=False)
     abilities = relationship('Ability', secondary=association_pokemon_ability, back_populates='pokemons')
     types = relationship('Type', secondary=association_pokemon_type, back_populates='pokemons')
 
@@ -42,7 +42,7 @@ class Pokemon(Base):
             "weight": self.weight,
             "height": self.height,
             "base_experience": self.base_experience,
-            "sprites": self.sprites,
+            "sprite": self.sprite,
             "abilities": self.abilities,
             "types": self.types,
             "created": self.created,
@@ -110,7 +110,7 @@ class Sprite(Base):
     pokemon_id = Column(Integer, ForeignKey("pokemon.id"))
 
     # parent: Mapped["Pokemon"] = relationship(back_populates="sprites")
-    pokemons = relationship('Pokemon', back_populates='sprites')
+    pokemon = relationship('Pokemon', back_populates='sprite', uselist=False)
 
     def dict(self):
         return {
