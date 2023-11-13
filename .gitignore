@@ -1,3 +1,8 @@
-Python_Fondamentaux.pdf
-
 .idea
+
+virtual_environment
+*.pdf
+
+fastApi/db/database.py
+fastApi/core/config.py
+fastApi/.env
