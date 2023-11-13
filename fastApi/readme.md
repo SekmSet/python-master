@@ -71,34 +71,33 @@ Replace `DIALECT`, `DRIVER`, `USER`, `PWD`, `DATATABLE`, `PORT` with your own va
 ## Routes
 
 **Pokemon**
-- [ ] Get all
-- [ ] Get one by ID
-- [ ] Get one by name
-- [ ] Post one
+- [x] Get all
+- [x] Get one by ID
+- [x] Get one by name
+- [x] Create one
 - [ ] Delete one
 - [ ] Update one
     
 **Type**
-- [ ] Get all
-- [ ] Get one by ID
-- [ ] Get one by name
-- [ ] Post one
+- [x] Get all
+- [x] Get one by ID
+- [x] Get one by name
+- [ ] Create one
 - [ ] Delete one
 - [ ] Update one
 
 **Sprite**
-- [ ] Get all
-- [ ] Get one by ID
-- [ ] Get one by name
-- [ ] Post one
+- [x] Get all
+- [x] Get one by ID
+- [ ] Create one
 - [ ] Delete one
 - [ ] Update one
 
 **Ability**
-- [ ] Get all
-- [ ] Get one by ID
-- [ ] Get one by name
-- [ ] Post one
+- [x] Get all
+- [x] Get one by ID
+- [x] Get one by name
+- [ ] Create one
 - [ ] Delete one
 - [ ] Update one
 
@@ -106,9 +105,14 @@ Replace `DIALECT`, `DRIVER`, `USER`, `PWD`, `DATATABLE`, `PORT` with your own va
 - [ ] Get all
 - [ ] Get one by ID
 - [ ] Get one by name
-- [ ] Post one
+- [ ] Create one
 - [ ] Delete one
 - [ ] Update one
+
+**When Pokémon is creating :**
+- `Type` and `Ability` are create if no existe in database
+- Relations `pokemon-ability` and `pokemon-type` are also created
+
 
 ## AUth with JWT Token
 
