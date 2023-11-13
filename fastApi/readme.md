@@ -146,6 +146,7 @@ pip3 install PyMySQL
 - Ability
 - Sprite
 - Type
+- User
 
 #### Relation
 
