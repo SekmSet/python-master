@@ -22,10 +22,8 @@ class SpriteService:
         return await sprite_repository.get_all()
 
     async def find_by_id(self, id: int):
-        return await sprite_repository.get_one(id)
+        return await sprite_repository.get_by_id(id)
 
-    async def find_by_name(self, name: str):
-        return await sprite_repository.get_by_name(name)
 
 
 sprite_service = SpriteService()

@@ -17,11 +17,6 @@ async def get_one_id(id: int):
     return await sprite_controller.get_sprite_by_id(id)
 
 
-@router.get("/name/{name}")
-async def get_one_name(name):
-    return await sprite_controller.get_sprite_by_name(name)
-
-
 @router.post("")
 async def add_one():
     return await sprite_controller.create_sprite()

@@ -6,22 +6,8 @@ from entity.sprite import SpriteEntity
 class SpriteRepo:
     async def create(self, sprite: Sprite):
         try:
-            print("repo sprite")
-            # new_sprite = Sprite(
-            #     front_default=sprite.front_default,
-            #     front_shiny=sprite.front_shiny,
-            #     front_shiny_female=sprite.front_shiny_female,
-            #     back_default= sprite.back_default,
-            #     back_female=sprite.back_female,
-            #     back_shiny=sprite.back_shiny,
-            #     back_shiny_female=sprite.back_shiny_female,
-            #     front_female=sprite.front_female,
-            #     created=sprite.created.id,
-            #     pokemon_id=sprite.pokemon_id
-            # )
             session.add(sprite)
             session.commit()
-            print(f"cc {sprite}")
             return sprite
         except:
             return "Error during creation sprite"
@@ -69,9 +55,6 @@ class SpriteRepo:
 
     async def get_by_id(self, id: int):
         return session.query(Sprite).get(id)
-
-    async def get_by_name(self, name: str):
-        return session.query(Sprite).filter(Sprite.name==name).first()
 
 
 sprite_repository = SpriteRepo()

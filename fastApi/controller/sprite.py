@@ -1,13 +1,16 @@
+from service.sprite import sprite_service
+
+
 class SpriteController:
 
     async def get_sprites(self):
-        return ({"message": "Get all sprites"})
+        results = await sprite_service.get_all()
+        return ({"message": "Get all sprites", "results": results})
 
     async def get_sprite_by_id(self, id: int):
-        return ({"message": "Get one sprite by ID", "id": id})
+        result = await sprite_service.find_by_id(id)
+        return ({"message": "Get one sprite by ID", "result": result})
 
-    async def get_sprite_by_name(self, name: str):
-        return ({"message": "Get one sprite by ID", "name": name})
 
     async def create_sprite(self):
         return ({"message": "Create a new sprite"})
