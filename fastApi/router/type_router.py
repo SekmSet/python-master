@@ -18,8 +18,8 @@ async def get_one(id: int):
 
 
 @router.get("/name/{name}")
-async def get_one_name(name):
-    return await type_controller.get_sprite_by_name(name)
+async def get_one_name(name: str):
+    return await type_controller.get_type_by_name(name)
 
 
 @router.post("")

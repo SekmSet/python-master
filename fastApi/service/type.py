@@ -24,7 +24,7 @@ class TypeService:
         return await type_repository.get_all()
 
     async def find_by_id(self, id: int):
-        return await type_repository.get_one(id)
+        return await type_repository.get_by_id(id)
 
     async def find_by_name(self, name: str):
         return await type_repository.get_by_name(name)

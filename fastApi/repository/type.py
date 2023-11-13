@@ -1,3 +1,4 @@
+from sqlalchemy.orm import joinedload
 from db.database import session
 from entity.type import TypeEntity
 from db.model.models import Type
@@ -46,13 +47,13 @@ class TypeRepo:
         session.commit()
 
     async def get_all(self):
-        return session.query(Type).all()
+        return session.query(Type).options(joinedload(Type.pokemons)).all()
 
     async def get_by_id(self, id: int):
-        return session.query(Type).get(id)
+        return session.query(Type).options(joinedload(Type.pokemons)).get(id)
 
     async def get_by_name(self, name: str):
-        return session.query(Type).filter(Type.name==name).first()
+        return session.query(Type).options(joinedload(Type.pokemons)).filter(Type.name == name).first()
 
 
 type_repository = TypeRepo()
