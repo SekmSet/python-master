@@ -1,5 +1,6 @@
 from fastapi import APIRouter
 from controller.type import type_controller
+from entity.type import TypeEntity
 
 router = APIRouter(
     prefix='/type',
@@ -28,8 +29,8 @@ async def add_one():
 
 
 @router.put("/{id}")
-async def update_one(id: int):
-    return await type_controller.update_type(id)
+async def update_one(type: TypeEntity):
+    return await type_controller.update_type(type)
 
 
 @router.delete("/{id}")

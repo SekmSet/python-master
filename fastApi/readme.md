@@ -137,7 +137,7 @@ pip install SQLAlchemy
 
 ```bash
 # Install MySQL Driver
-pip3 install PyMySQL
+pip install PyMySQL
 ```
 
 ### Datatables

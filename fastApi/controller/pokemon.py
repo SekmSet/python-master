@@ -24,7 +24,6 @@ class PokemonController:
 
     async def update_pokemon(self, pokemon: PokemonEntity):
         updated = await pokemon_service.update(pokemon)
-
         return {"message": "Update pokemon by ID", "updated pokemon": updated}
 
     async def delete_pokemon(self, id: int):

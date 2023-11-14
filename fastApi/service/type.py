@@ -14,11 +14,17 @@ class TypeService:
         await type_repository.create_link(pokemon_id, type_id)
 
     async def update(self, type: TypeEntity):
-        type.updated = datetime.datetime.now()
-        return await type_repository.update(type)
+        is_exist = type_repository.get_by_id(type.id)
+
+        if is_exist:
+            type.updated = datetime.datetime.now()
+            return await type_repository.update(type)
 
     async def delete(self, id: int):
-        await type_repository.delete(id)
+        is_exist = type_repository.get_by_id(id)
+
+        if is_exist:
+            await type_repository.delete(id)
 
     async def get_all(self):
         return await type_repository.get_all()

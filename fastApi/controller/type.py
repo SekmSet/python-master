@@ -1,5 +1,7 @@
 from service.type import type_service
 
+from entity.type import TypeEntity
+
 
 class TypeController:
 
@@ -15,11 +17,13 @@ class TypeController:
         result = await type_service.find_by_name(name)
         return {"message": "Get one type by NAME", "result": result}
 
-    async def create_type(self):
-        return {"message": "Create a new type"}
+    async def create_type(self, type: TypeEntity):
+        type = await type_service.create(type)
+        return {"message": "Create a new type", "type": type}
 
-    async def update_type(self, id: int):
-        return {"message": "Update type by ID", "id": id}
+    async def update_type(self, type: TypeEntity):
+        updated = await type_service.update(type)
+        return {"message": "Update type by ID", "updated type": updated}
 
     async def delete_type(self, id: int):
         return {"message": "Delete type by ID", "id": id}
