@@ -14,7 +14,7 @@ class TypeService:
         await type_repository.create_link(pokemon_id, type_id)
 
     async def update(self, type: TypeEntity):
-        is_exist = type_repository.get_by_id(type.id)
+        is_exist = await type_repository.get_by_id(type.id)
 
         if is_exist:
             type.updated = datetime.datetime.now()

@@ -4,7 +4,7 @@ from entity.pokemon import PokemonEntity
 
 router = APIRouter(
     prefix='/pokemon',
-    tags=['pokemon']
+    tags=['Pokemon']
 )
 
 

@@ -18,7 +18,7 @@ class TypeRepo:
 
             return new_type
         except:
-            return "Error during creation"
+            return "❌Error during creating type"
 
     async def create_link(self, pokemon_id: int, type_id: int):
         try:
@@ -29,7 +29,7 @@ class TypeRepo:
 
             session.commit()
         except:
-            print("Impossible de créer la relation entre le type et le pokémon")
+            print("❌Error during creation relationship between type and pokémon")
 
     async def update(self, type: TypeEntity):
         try:
@@ -44,7 +44,7 @@ class TypeRepo:
 
             return session.query(Type).get(type.id)
         except:
-            print("Impossible de modifier le type")
+            print("❌Error during updating type")
 
     async def delete(self, id: int):
         try:
@@ -52,7 +52,7 @@ class TypeRepo:
             session.delete(item)
             session.commit()
         except:
-            print("Impossible de supprimer le type")
+            print("❌Error during deleting type")
 
     async def get_all(self):
         return session.query(Type).options(joinedload(Type.pokemons)).all()

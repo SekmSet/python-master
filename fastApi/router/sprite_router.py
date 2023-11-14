@@ -1,9 +1,10 @@
 from fastapi import APIRouter
 from controller.sprite import sprite_controller
+from entity.sprite import SpriteEntity
 
 router = APIRouter(
     prefix='/sprite',
-    tags=['sprite']
+    tags=['Sprite']
 )
 
 
@@ -22,9 +23,9 @@ async def add_one():
     return await sprite_controller.create_sprite()
 
 
-@router.put("/{id}")
-async def update_one(id: int):
-    return await sprite_controller.update_sprite(id)
+@router.put("")
+async def update_one(sprite: SpriteEntity):
+    return await sprite_controller.update_sprite(sprite)
 
 
 @router.delete("/{id}")

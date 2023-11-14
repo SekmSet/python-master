@@ -20,11 +20,11 @@ class PokemonController:
 
     async def create_pokemon(self, pokemon: PokemonEntity):
         await pokemon_service.create(pokemon)
-        return {"message": "Create a new pokemon", "pokemon": pokemon}
+        return {"message": "✅Create a new pokemon", "pokemon": pokemon}
 
     async def update_pokemon(self, pokemon: PokemonEntity):
         updated = await pokemon_service.update(pokemon)
-        return {"message": "Update pokemon by ID", "updated pokemon": updated}
+        return {"message": "✅Update pokemon done", "updated pokemon": updated}
 
     async def delete_pokemon(self, id: int):
         try:

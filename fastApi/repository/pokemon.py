@@ -19,39 +19,47 @@ class PokemonRepo:
             session.commit()
             return new_pokemon
         except:
-            return "Error during creation pokemon"
+            return "❌Error during creating pokemon"
 
     async def update(self, pokemon: PokemonEntity):
-        item = session.query(Pokemon).get(pokemon.id)
+        try:
+            item = session.query(Pokemon).get(pokemon.id)
 
-        if pokemon.name and pokemon.name != item.name:
-            item.name = pokemon.name
-        if pokemon.weight and pokemon.weight != item.weight:
-            item.weight = pokemon.weight
-        if pokemon.height and pokemon.height != item.height:
-            item.height = pokemon.height
-        if pokemon.base_experience and pokemon.base_experience != item.base_experience:
-            item.base_experience = pokemon.base_experience
+            if pokemon.name and pokemon.name != item.name:
+                item.name = pokemon.name
+            if pokemon.weight and pokemon.weight != item.weight:
+                item.weight = pokemon.weight
+            if pokemon.height and pokemon.height != item.height:
+                item.height = pokemon.height
+            if pokemon.base_experience and pokemon.base_experience != item.base_experience:
+                item.base_experience = pokemon.base_experience
 
-        item.updated = pokemon.updated
+            item.updated = pokemon.updated
 
-        session.commit()
-        return session.query(Pokemon).get(pokemon.id)
+            session.commit()
+            return session.query(Pokemon).get(pokemon.id)
+        except:
+            print("❌Error during updating pokemon")
 
     async def delete(self, id: int):
-        item = session.query(Pokemon).get(id)
-        session.delete(item)
-        session.commit()
+        try:
+            item = session.query(Pokemon).get(id)
+            session.delete(item)
+            session.commit()
+        except:
+            print("❌Error during deleting pokemon")
 
     async def get_all(self):
-        return session.query(Pokemon).options(joinedload(Pokemon.sprite), joinedload(Pokemon.abilities), joinedload(Pokemon.types)).all()
+        return session.query(Pokemon).options(joinedload(Pokemon.sprite), joinedload(Pokemon.abilities),
+                                              joinedload(Pokemon.types)).all()
 
     async def get_by_id(self, id: int):
-        return session.query(Pokemon).options(joinedload(Pokemon.sprite), joinedload(Pokemon.abilities), joinedload(Pokemon.types)).get(id)
-
+        return session.query(Pokemon).options(joinedload(Pokemon.sprite), joinedload(Pokemon.abilities),
+                                              joinedload(Pokemon.types)).get(id)
 
     async def get_by_name(self, name: str):
-        return session.query(Pokemon).options(joinedload(Pokemon.sprite), joinedload(Pokemon.abilities), joinedload(Pokemon.types)).filter(Pokemon.name==name).first()
+        return session.query(Pokemon).options(joinedload(Pokemon.sprite), joinedload(Pokemon.abilities),
+                                              joinedload(Pokemon.types)).filter(Pokemon.name == name).first()
 
 
 pokemon_repository = PokemonRepo()

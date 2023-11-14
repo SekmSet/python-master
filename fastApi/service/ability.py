@@ -14,8 +14,11 @@ class AbilityService:
         await ability_repository.create_link(pokemon_id, ability_id)
 
     async def update(self, ability: AbilityEntity):
-        ability.updated = datetime.datetime.now()
-        return await ability_repository.update(ability)
+        is_exist = await ability_repository.get_by_id(ability.id)
+
+        if is_exist:
+            ability.updated = datetime.datetime.now()
+            return await ability_repository.update(ability)
 
     async def delete(self, id: int):
         await ability_repository.delete(id)

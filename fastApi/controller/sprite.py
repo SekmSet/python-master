@@ -1,4 +1,5 @@
 from service.sprite import sprite_service
+from entity.sprite import SpriteEntity
 
 
 class SpriteController:
@@ -15,7 +16,7 @@ class SpriteController:
     async def create_sprite(self):
         return ({"message": "Create a new sprite"})
 
-    async def update_sprite(self, id: int):
+    async def update_sprite(self, sprite: SpriteEntity):
         return ({"message": "Update sprite by ID", "id": id})
 
     async def delete_sprite(self, id: int):

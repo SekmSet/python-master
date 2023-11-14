@@ -4,7 +4,7 @@ from entity.type import TypeEntity
 
 router = APIRouter(
     prefix='/type',
-    tags=['type']
+    tags=['Type']
 )
 
 
@@ -28,7 +28,7 @@ async def add_one():
     return await type_controller.create_type()
 
 
-@router.put("/{id}")
+@router.put("")
 async def update_one(type: TypeEntity):
     return await type_controller.update_type(type)
 

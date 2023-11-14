@@ -1,9 +1,10 @@
 from fastapi import APIRouter
 from controller.ability import ability_controller
+from entity.ability import AbilityEntity
 
 router = APIRouter(
     prefix='/ability',
-    tags=['ability']
+    tags=['Ability']
 )
 
 
@@ -28,8 +29,8 @@ async def add_one():
 
 
 @router.put("/{id}")
-async def update_one(id: int):
-    return await ability_controller.update_ability(id)
+async def update_one(ability: AbilityEntity):
+    return await ability_controller.update_ability(ability)
 
 
 @router.delete("/{id}")

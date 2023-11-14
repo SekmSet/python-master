@@ -19,11 +19,11 @@ class TypeController:
 
     async def create_type(self, type: TypeEntity):
         type = await type_service.create(type)
-        return {"message": "Create a new type", "type": type}
+        return {"message": "✅Create a new type", "type": type}
 
     async def update_type(self, type: TypeEntity):
         updated = await type_service.update(type)
-        return {"message": "Update type by ID", "updated type": updated}
+        return {"message": "✅Update type done", "updated type": updated}
 
     async def delete_type(self, id: int):
         return {"message": "Delete type by ID", "id": id}
