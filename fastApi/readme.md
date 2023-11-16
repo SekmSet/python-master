@@ -114,7 +114,25 @@ Replace `DIALECT`, `DRIVER`, `USER`, `PWD`, `DATATABLE`, `PORT` with your own va
 - Relations `pokemon-ability` and `pokemon-type` are also created
 
 
-## AUth with JWT Token
+## Auth with JWT Token
+
+```bash
+# generate and verify the JWT tokens in Python
+ppip install "python-jose[cryptography]"
+```
+
+```bash
+# handle password hashes
+pip install "passlib[bcrypt]"
+```
+
+```bash
+# Generate random secret key
+openssl rand -hex 32  
+```
+
+Copy/past `jwt/conf.example.py` and rename file into `conf.py`
+Add your own secret key
 
 * Create an account `/signin`
 * Login to an account `/login`

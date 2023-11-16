@@ -6,3 +6,4 @@ virtual_environment
 fastApi/db/database.py
 fastApi/core/config.py
 fastApi/.env
+fastApi/jwt/conf.py

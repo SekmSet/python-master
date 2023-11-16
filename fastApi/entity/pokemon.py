@@ -14,7 +14,3 @@ class PokemonEntity(BaseModel):
     base_experience: Union[int, None] = None
     created: Union[datetime, None] = None
     updated: Union[datetime, None] = None
-
-    # sprites: Union[Sprite, None] = None
-    # abilities: Union[List[Ability], None] = None
-    # types: Union[List[Type], None] = None
