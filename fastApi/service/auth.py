@@ -43,7 +43,7 @@ class AuthService:
         return encoded_jwt
 
     async def authenticate_user(self, user: UserEntity):
-        is_exist = await auth_repository.get_user_by_name(user.name)
+        is_exist = await auth_repository.find_by_name(user.name)
 
         if not is_exist:
             return False
@@ -56,6 +56,12 @@ class AuthService:
 
     def get_password_hash(self, password: str):
         return pwd_context.hash(password)
+
+    async def delete_user(self, user):
+        user_to_delete = await auth_repository.find_by_id(user.id)
+
+        if user_to_delete:
+            await auth_repository.delete(user_to_delete)
 
 
 auth_service = AuthService()

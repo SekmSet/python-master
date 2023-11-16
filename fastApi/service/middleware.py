@@ -26,7 +26,7 @@ async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)]):
         print(f"exception : {exception}")
         raise credentials_exception
 
-    user = await auth_repository.get_user_by_name(username)
+    user = await auth_repository.find_by_name(username)
     if user is None:
         raise credentials_exception
     return user

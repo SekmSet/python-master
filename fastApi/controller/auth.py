@@ -16,5 +16,8 @@ class AuthController:
         else:
             return {"message": "❌User can't be log", "token": "no token to display"}
 
+    async def delete(self, user):
+        deleted = await auth_service.delete_user(user)
+
 
 auth_controller = AuthController()

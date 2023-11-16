@@ -18,7 +18,14 @@ class AuthRepo:
         except:
             print({"error": True, "message": "❌Error during creating new user"})
 
-    async def get_user_by_name(self, name):
+    async def delete(self, user_to_delete: UserEntity):
+        session.delete(user_to_delete)
+        session.commit()
+
+    async def find_by_id(self, id: str):
+        return session.query(User).get(id)
+
+    async def find_by_name(self, name: str):
         return session.query(User).filter(User.name == name).first()
 
 
