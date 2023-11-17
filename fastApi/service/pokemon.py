@@ -50,6 +50,21 @@ async def create_ability(pokemon, abilities):
             await ability_service.create_pokemon_ability_link(pokemon.id, existing_ability.id)
 
 
+async def create_sprite(pokemon, sprite):
+    convert = Sprite(
+        back_female=sprite["back_female"],
+        back_default=sprite["back_default"],
+        back_shiny=sprite["back_shiny"],
+        back_shiny_female=sprite["back_shiny_female"],
+        front_default=sprite["front_default"],
+        front_female=sprite["front_female"],
+        front_shiny=sprite["front_shiny"],
+        front_shiny_female=sprite["front_shiny_female"],
+        pokemon_id=pokemon.id
+    )
+    await sprite_service.create(convert)
+
+
 class PokemonService:
     async def create(self, pokemon: PokemonEntity):
         pokemon.created = datetime.datetime.now()
@@ -59,23 +74,9 @@ class PokemonService:
 
         await create_type(created, pokemon_pokeapi['types'])
         await create_ability(created, pokemon_pokeapi['abilities'])
-        await self.create_sprite(created, pokemon_pokeapi['sprites'])
+        await create_sprite(created, pokemon_pokeapi['sprites'])
 
         return created
-
-    async def create_sprite(self, pokemon, sprite):
-        convert = Sprite(
-            back_female=sprite["back_female"],
-            back_default= sprite["back_default"],
-            back_shiny=sprite["back_shiny"],
-            back_shiny_female=sprite["back_shiny_female"],
-            front_default=sprite["front_default"],
-            front_female=sprite["front_female"],
-            front_shiny=sprite["front_shiny"],
-            front_shiny_female=sprite["front_shiny_female"],
-            pokemon_id=pokemon.id
-        )
-        await sprite_service.create(convert)
 
     async def update(self, pokemon: PokemonEntity):
         pokemon.updated = datetime.datetime.now()
