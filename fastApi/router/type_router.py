@@ -27,9 +27,9 @@ async def get_one_name(name: str):
 
 
 @router.post("")
-async def add_one(current_user: Annotated[User, Depends(get_current_user)]):
+async def add_one(type: TypeEntity, current_user: Annotated[User, Depends(get_current_user)]):
     if current_user:
-        return await type_controller.create_type()
+        return await type_controller.create_type(type)
 
 
 @router.put("")

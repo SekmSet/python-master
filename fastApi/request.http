@@ -20,7 +20,7 @@ Authorization: Bearer {{ TOKEN }}
 
 ### Pokémon POST
 POST http://127.0.0.1:8000/pokemon
-Authorization: Bearer {{ TOKEN }}
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzdHJpbmciLCJleHAiOjE3MDAyNDQzMDh9.bskbL6Hob8VZndPfR_5JgbH52UDIpkZ0EO5Fpv9gtHo
 Content-Type: application/json
 
 {
@@ -60,7 +60,6 @@ Content-Type: application/json
 
 {
     "id": 0,
-    "pokemon_id": 0,
     "name": "string"
 }
 ###
@@ -72,7 +71,6 @@ Content-Type: application/json
 
 {
     "id": 0,
-    "pokemon_id": 0,
     "name": "string",
     "created": "2023-11-17T14:48:19.733Z"
 }
@@ -90,7 +88,6 @@ Content-Type: application/json
 
 {
     "id": 0,
-    "pokemon_id": 0,
     "name": "string",
     "effect": "string",
     "short_effect": "string"
@@ -104,7 +101,6 @@ Content-Type: application/json
 
 {
     "id": 0,
-    "pokemon_id": 0,
     "name": "string",
     "effect": "string",
     "short_effect": "string",

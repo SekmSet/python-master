@@ -3,11 +3,13 @@
 Groupe IGS / IPI Toulouse - Master IL 
 
 ## Requirements
-- Python 3
-- Pip 3
+- Python3
+- Pip
+
+## Get dependencies
 
 ```bash
-pip3 freeze > requirements.txt
+pip freeze > requirements.txt
 ```
 
 ## If your are using virtual environment for MAC OS
@@ -63,12 +65,36 @@ uvicorn main:app --reload
 
 **With `dotenv`**
 
+```bash
+pip install python-dotenv
+```
+
 Copy/Past `.env.example` and rename file into `.env` then add correct values
 
 **Without `dotenv`**
 
 Copy/Past `database.example.py` and rename file into `database.py` then modify `DATABASE_URL`variable 
 Replace `DIALECT`, `DRIVER`, `USER`, `PWD`, `DATATABLE`, `PORT` with your own values.
+
+> If your are using **MySql**, you can install and use the driver `PyMySQL`
+> 
+>```bash
+>pip install PyMySQL
+>```
+>
+>
+Example to set your **database_url**
+
+```python
+database_url = "mysql+pymysql://root:root@localhost/MyTable"
+```
+
+## Other install
+
+```bash
+# Install HTTPX
+pip install httpx
+```
 
 ## Routes
 
@@ -137,7 +163,7 @@ Copy your new token and in `request.http` file replace `{{ TOKEN }}` with your n
 
 ```bash
 # generate and verify the JWT tokens in Python
-ppip install "python-jose[cryptography]"
+pip install "python-jose[cryptography]"
 ```
 
 ```bash
