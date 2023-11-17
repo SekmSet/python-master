@@ -7,10 +7,10 @@ Groupe IGS / IPI Toulouse - Master IL
 - Pip 3
 
 ```bash
-pip install -r requirements.txt
+pip3 freeze > requirements.txt
 ```
 
-## Virtual environment for MAC OS
+## If your are using virtual environment for MAC OS
 
 ```bash
 # Create your virtual environment
@@ -27,7 +27,7 @@ source <desired-path>/bin/activate
 deactivate
 ```
 
-## FastApi
+## If your are creating a new project with FastApi
 
 ```bash
 # Install FastApi
@@ -42,6 +42,8 @@ pip install uvicorn
 Create a new directory
 
 Create a `main.py` file
+
+## Launch project 
 
 ```bash
 cd fastApi
