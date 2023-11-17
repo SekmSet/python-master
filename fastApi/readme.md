@@ -166,6 +166,8 @@ Copy your new token and in `request.http` file replace `{{ TOKEN }}` with your n
 
 ⚠️ In `request.http` for `DELETE` routes, replace `id` with a value in the URL
 
+⚠️ If you want to know witch routes you can use and test go to **Routes** section
+
 ## Auth with JWT Token
 
 ```bash

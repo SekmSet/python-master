@@ -26,6 +26,7 @@ class TypeController:
         return {"message": "✅Update type done", "updated type": updated}
 
     async def delete_type(self, id: int):
+        # await type_service.delete_type(id)
         return {"message": "Delete type by ID", "id": id}
 
 
