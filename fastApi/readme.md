@@ -71,7 +71,7 @@ pip install python-dotenv
 
 Copy/Past `.env.example` and rename file into `.env` then add correct values
 
-**Without `dotenv`**
+**Without `dotenv`** _(our case)_
 
 Copy/Past `database.example.py` and rename file into `database.py` then modify `DATABASE_URL`variable 
 Replace `DIALECT`, `DRIVER`, `USER`, `PWD`, `DATATABLE`, `PORT` with your own values.
