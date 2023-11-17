@@ -9,7 +9,7 @@ Groupe IGS / IPI Toulouse - Master IL
 ## Get dependencies
 
 ```bash
-pip freeze > requirements.txt
+pip install -r requirements.txt
 ```
 
 ## If your are using virtual environment for MAC OS
@@ -76,7 +76,7 @@ Copy/Past `.env.example` and rename file into `.env` then add correct values
 Copy/Past `database.example.py` and rename file into `database.py` then modify `DATABASE_URL`variable 
 Replace `DIALECT`, `DRIVER`, `USER`, `PWD`, `DATATABLE`, `PORT` with your own values.
 
-> If your are using **MySql**, you can install and use the driver `PyMySQL`
+> If you are using **MySql**, you can install and use the driver `PyMySQL`
 > 
 >```bash
 >pip install PyMySQL

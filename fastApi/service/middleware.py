@@ -7,7 +7,7 @@ from repository.auth import auth_repository
 
 from jwt.conf import SECRET_KEY, ALGORITHM
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="auth/login")
 
 
 async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)]):
@@ -18,15 +18,15 @@ async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)]):
     )
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
-        username: str = payload.get("sub")
+        name: str = payload.get("sub")
 
-        if username is None:
+        if name is None:
             raise credentials_exception
     except Exception as exception:
         print(f"exception : {exception}")
         raise credentials_exception
 
-    user = await auth_repository.find_by_name(username)
+    user = await auth_repository.find_by_name(name)
     if user is None:
         raise credentials_exception
     return user
