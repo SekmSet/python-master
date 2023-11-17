@@ -143,14 +143,21 @@ pip install httpx
 
 ### Test your routes
 
+- With direct access to [FastApi Doc](http://127.0.0.1:8000/docs)
+- or with `request.http`
+
 #### For routes without using Middleware
-Direct access to [FastApi Doc](http://127.0.0.1:8000/docs) _(working as Postman or Insomnia)_
+For routes `GET` you don't need to have to be **login** and you can try this routes directly on **FastApi Doc**
 
 #### For routes using Middleware
 
-Use `request.http` to try route using middleware `POST` `PUT` and `DELETE`
+For routes `POST` `PUT` and `DELETE` you have to be **login** and have a token.
+You can try and use this routes with `request.http` file.
 
 > ##### How to get your token ?
+> 
+> If you don't have an account : you have to create your account with `name` and `password` with `/signin` route
+> 
 > In the FastApi Doc launch the `login` route to get your token.
 >
 > Or in `request.http` file, use the first request **Get your token**
@@ -181,7 +188,6 @@ Add your own secret key
 
 * Create an account `/signin`
 * Login to an account `/login`
-* Logout to an account `/logout`
 * Delete account `/delete`
 
 To have actions on `PUT`, `POST` and `DELETE` request you have to be login _via_ `/login`
