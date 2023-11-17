@@ -1,0 +1,118 @@
+### Get your token
+POST http://127.0.0.1:8000/auth/login
+Content-Type: application/json
+
+{
+    "name": "string",
+    "password": "string"
+}
+###
+
+### Auth DELETE
+DELETE http://127.0.0.1:8000/auth/delete
+Authorization: Bearer {{ TOKEN }}
+###
+
+### Auth GET ME
+GET http://127.0.0.1:8000/auth/me
+Authorization: Bearer {{ TOKEN }}
+###
+
+### Pokémon POST
+POST http://127.0.0.1:8000/pokemon
+Authorization: Bearer {{ TOKEN }}
+Content-Type: application/json
+
+{
+    "pokeApi": 0,
+    "name": "string",
+    "weight": 0,
+    "height": 0,
+    "base_experience": 0
+}
+###
+
+### Pokémon PUT
+PUT http://127.0.0.1:8000/pokemon
+Authorization: Bearer {{ TOKEN }}
+Content-Type: application/json
+
+{
+    "id": 0,
+    "name": "string",
+    "weight": 0,
+    "height": 0,
+    "base_experience": 0,
+    "created": "2023-11-17T14:46:35.802Z"
+}
+###
+
+### Pokémon DELETE
+DELETE http://127.0.0.1:8000/pokemon/id
+Authorization: Bearer {{ TOKEN }}
+###
+
+
+### Type POST
+POST http://127.0.0.1:8000/type
+Authorization: Bearer {{ TOKEN }}
+Content-Type: application/json
+
+{
+    "id": 0,
+    "pokemon_id": 0,
+    "name": "string"
+}
+###
+
+### Type PUT
+PUT http://127.0.0.1:8000/type
+Authorization: Bearer {{ TOKEN }}
+Content-Type: application/json
+
+{
+    "id": 0,
+    "pokemon_id": 0,
+    "name": "string",
+    "created": "2023-11-17T14:48:19.733Z"
+}
+###
+
+### Type DELETE
+DELETE http://127.0.0.1:8000/type/id
+Authorization: Bearer {{ TOKEN }}
+###
+
+### Ability POST
+POST http://127.0.0.1:8000/ability
+Authorization: Bearer {{ TOKEN }}
+Content-Type: application/json
+
+{
+    "id": 0,
+    "pokemon_id": 0,
+    "name": "string",
+    "effect": "string",
+    "short_effect": "string"
+}
+###
+
+### Ability PUT
+PUT http://127.0.0.1:8000/ability
+Authorization: Bearer {{ TOKEN }}
+Content-Type: application/json
+
+{
+    "id": 0,
+    "pokemon_id": 0,
+    "name": "string",
+    "effect": "string",
+    "short_effect": "string",
+    "created": "2023-11-17T14:48:19.741Z"
+}
+###
+
+### Ability DELETE
+DELETE http://127.0.0.1:8000/ability/id
+Authorization: Bearer {{ TOKEN }}
+###

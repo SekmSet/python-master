@@ -1,10 +1,8 @@
 from typing import Annotated
-
 from fastapi import APIRouter, Depends
 from entity.user import UserEntity
 from controller.auth import auth_controller
 from db.model.models import User
-
 from service.middleware import get_current_user
 
 router = APIRouter(

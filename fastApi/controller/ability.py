@@ -21,14 +21,10 @@ class AbilityController:
 
     async def update_ability(self, ability: AbilityEntity):
         updated = await ability_service.update(ability)
-
-        # if updated["error"] is True:
-        #     return {"Message": "Update ability failed", "Error": updated["message"]}
-
-        return {"Message": "Update ability succeed", "Updated": updated}
+        return {"Message": "✅Update ability succeed", "Updated": updated}
 
     async def delete_ability(self, id: int):
-        return {"Message": "Delete ability by ID", "id": id}
+        return {"Message": "❌Delete ability by ID", "id": id}
 
 
 ability_controller = AbilityController()

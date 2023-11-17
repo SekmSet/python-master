@@ -1,6 +1,9 @@
-from fastapi import APIRouter
+from typing import Annotated
+from fastapi import APIRouter, Depends
 from controller.sprite import sprite_controller
 from entity.sprite import SpriteEntity
+from service.middleware import get_current_user
+from db.model.models import User
 
 router = APIRouter(
     prefix='/sprite',
@@ -29,5 +32,6 @@ async def update_one(sprite: SpriteEntity):
 
 
 @router.delete("/{id}")
-async def delete_one(id: int):
-    return await sprite_controller.delete_sprite(id)
+async def delete_one(id: int, current_user: Annotated[User, Depends(get_current_user)]):
+    if current_user:
+        return await sprite_controller.delete_sprite(id)

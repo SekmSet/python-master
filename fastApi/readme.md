@@ -76,21 +76,21 @@ Replace `DIALECT`, `DRIVER`, `USER`, `PWD`, `DATATABLE`, `PORT` with your own va
 - [x] Get one by name
 - [x] Create one
 - [ ] Delete one
-- [ ] Update one
+- [x] Update one
     
 **Type**
 - [x] Get all
 - [x] Get one by ID
 - [x] Get one by name
-- [ ] Create one
+- [x] Create one
 - [ ] Delete one
-- [ ] Update one
+- [x] Update one
 
 **Sprite**
 - [x] Get all
 - [x] Get one by ID
-- [ ] Create one
-- [ ] Delete one
+- [x] Create one
+- [x] Delete one
 - [ ] Update one
 
 **Ability**
@@ -99,20 +99,37 @@ Replace `DIALECT`, `DRIVER`, `USER`, `PWD`, `DATATABLE`, `PORT` with your own va
 - [x] Get one by name
 - [ ] Create one
 - [ ] Delete one
-- [ ] Update one
+- [x] Update one
 
 **User**
 - [ ] Get all
 - [ ] Get one by ID
 - [ ] Get one by name
-- [ ] Create one
-- [ ] Delete one
+- [x] Create one
+- [x] Delete one
 - [ ] Update one
 
-**When Pokémon is creating :**
-- `Type` and `Ability` are create if no existe in database
-- Relations `pokemon-ability` and `pokemon-type` are also created
+> **When Pokémon is creating :**
+> - `Type` and `Ability` are create if no existe in database
+> - Relations `pokemon-ability` and `pokemon-type` are also created
 
+### Test your routes
+
+#### For routes without using Middleware
+Direct access to [FastApi Doc](http://127.0.0.1:8000/docs) _(working as Postman or Insomnia)_
+
+#### For routes using Middleware
+
+Use `request.http` to try route using middleware `POST` `PUT` and `DELETE`
+
+> ##### How to get your token ?
+> In the FastApi Doc launch the `login` route to get your token.
+>
+> Or in `request.http` file, use the first request **Get your token**
+
+Copy your new token and in `request.http` file replace `{{ TOKEN }}` with your new token.
+
+⚠️ In `request.http` for `DELETE` routes, replace `id` with a value in the URL
 
 ## Auth with JWT Token
 
@@ -145,7 +162,15 @@ To secure our routes add a middleware on your router, check if request are recei
 
 ## Middleware
 
+Add your middleware to your route in the parameter of your function
 
+```python
+# Example
+@router.delete("/{id}")
+async def delete(id, current_user: Annotated[User, Depends(get_current_user)]):
+    if current_user:
+        pass
+```
 ## Database with using ORM SQLAlchemy
 
 ```bash
@@ -185,3 +210,6 @@ One **Pokémon** many **Type**
 One **Type** many **Pokémon**
 
 → Many to Many
+
+![Diagram](../.github/diagram.png "BDD diagram")
+

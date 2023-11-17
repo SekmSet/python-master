@@ -1,6 +1,9 @@
-from fastapi import APIRouter
+from typing import Annotated
+from fastapi import APIRouter, Depends
 from controller.type import type_controller
 from entity.type import TypeEntity
+from service.middleware import get_current_user
+from db.model.models import User
 
 router = APIRouter(
     prefix='/type',
@@ -24,15 +27,18 @@ async def get_one_name(name: str):
 
 
 @router.post("")
-async def add_one():
-    return await type_controller.create_type()
+async def add_one(current_user: Annotated[User, Depends(get_current_user)]):
+    if current_user:
+        return await type_controller.create_type()
 
 
 @router.put("")
-async def update_one(type: TypeEntity):
-    return await type_controller.update_type(type)
+async def update_one(type: TypeEntity, current_user: Annotated[User, Depends(get_current_user)]):
+    if current_user:
+        return await type_controller.update_type(type)
 
 
 @router.delete("/{id}")
-async def delete_one(id: int):
-    return await type_controller.delete_type(id)
+async def delete_one(id: int, current_user: Annotated[User, Depends(get_current_user)]):
+    if current_user:
+        return await type_controller.delete_type(id)
