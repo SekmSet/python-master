@@ -47,12 +47,6 @@ Content-Type: application/json
 }
 ###
 
-### Pokémon DELETE
-DELETE http://127.0.0.1:8000/pokemon/id
-Authorization: Bearer {{ TOKEN }}
-###
-
-
 ### Type POST
 POST http://127.0.0.1:8000/type
 Authorization: Bearer {{ TOKEN }}
@@ -73,11 +67,6 @@ Content-Type: application/json
     "name": "string",
     "created": "2023-11-17T14:48:19.733Z"
 }
-###
-
-### Type DELETE
-DELETE http://127.0.0.1:8000/type/id
-Authorization: Bearer {{ TOKEN }}
 ###
 
 ### Ability POST
@@ -106,7 +95,37 @@ Content-Type: application/json
 }
 ###
 
-### Ability DELETE
-DELETE http://127.0.0.1:8000/ability/id
+
+### Sprite POST
+POST http://127.0.0.1:8000/sprite
 Authorization: Bearer {{ TOKEN }}
+Content-Type: application/json
+
+{
+    "id": 0,
+    "pokemon_id": 0,
+    "pokeApi": 0,
+    "front_default": "string",
+    "front_shiny": "string",
+    "front_shiny_female": "string",
+    "back_default": "string",
+    "back_female": "string",
+    "back_shiny": "string",
+    "back_shiny_female": "string"
+}
+###
+
+
+### Sprite DELET
+PUT http://127.0.0.1:8000/sprite/id
+Authorization: Bearer {{ TOKEN }}
+Content-Type: application/json
+
+{
+  "id": 0,
+  "name": "string",
+  "effect": "string",
+  "short_effect": "string",
+  "created": "2023-11-17T14:48:19.741Z"
+}
 ###

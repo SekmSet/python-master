@@ -38,7 +38,7 @@ async def update_one(type: TypeEntity, current_user: Annotated[User, Depends(get
         return await type_controller.update_type(type)
 
 
-@router.delete("/{id}")
-async def delete_one(id: int, current_user: Annotated[User, Depends(get_current_user)]):
-    if current_user:
-        return await type_controller.delete_type(id)
+# @router.delete("/{id}")
+# async def delete_one(id: int, current_user: Annotated[User, Depends(get_current_user)]):
+#     if current_user:
+#         return await type_controller.delete_type(id)

@@ -40,7 +40,7 @@ async def update_one(pokemon: PokemonEntity, current_user: Annotated[User, Depen
         return await pokemon_controller.update_pokemon(pokemon)
 
 
-@router.delete("/{id}")
-async def delete_one(id, current_user: Annotated[User, Depends(get_current_user)]):
-    if current_user:
-        return await pokemon_controller.delete_pokemon(id)
+# @router.delete("/{id}")
+# async def delete_one(id, current_user: Annotated[User, Depends(get_current_user)]):
+#     if current_user:
+#         return await pokemon_controller.delete_pokemon(id)

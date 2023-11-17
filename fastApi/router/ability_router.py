@@ -38,7 +38,7 @@ async def update_one(ability: AbilityEntity, current_user: Annotated[User, Depen
         return await ability_controller.update_ability(ability)
 
 
-@router.delete("/{id}")
-async def delete_one(id: int, current_user: Annotated[User, Depends(get_current_user)]):
-    if current_user:
-        return await ability_controller.delete_ability(id)
+# @router.delete("/{id}")
+# async def delete_one(id: int, current_user: Annotated[User, Depends(get_current_user)]):
+#     if current_user:
+#         return await ability_controller.delete_ability(id)
